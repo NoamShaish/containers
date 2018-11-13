@@ -1,5 +1,6 @@
 package noam.shaish.json
 
+import noam.shaish.expression.{Minus, Number, Plus}
 import org.scalatest.{FlatSpec, Matchers}
 
 class JsonWriterTest extends FlatSpec with Matchers {
@@ -21,12 +22,18 @@ class JsonWriterTest extends FlatSpec with Matchers {
     JsonWriter.write(JsonArray(Seq(JsonNumber(1), JsonString("a"), JsonNull))) should be("[1, \"a\", null]")
   }
 
-  it should "write json object {name:\"Jon\", age:30, work:null, hobbies:[\"soccer\"]}" in {
+  it should "write json object {name: \"Jon\", age: 30, work: null, hobbies: [\"soccer\"]}" in {
     JsonWriter.write(JsonObject(Map(
       "name" -> JsonString("Jon"),
       "age" -> JsonNumber(30),
       "work" -> JsonNull,
       "hobbies" -> JsonArray(Seq(JsonString("soccer")))
-    ))) should be("{name:\"Jon\", age:30, work:null, hobbies:[\"soccer\"]}")
+    ))) should be("{name: \"Jon\", age: 30, work: null, hobbies: [\"soccer\"]}")
+  }
+
+  it should "write an expression 3 - (1 + 2)" in {
+    JsonWriter.write(Minus(Number(3), Plus(Number(1), Number(2)))) should be(
+      "{op: \"-\", lhs: 3, rhs: {op: \"+\", lhs: 1, rhs: 2}}"
+    )
   }
 }

@@ -1,10 +1,27 @@
 package noam.shaish.expression
 
-sealed trait Expression
+import noam.shaish.json._
 
-case class Number(value: Int) extends Expression
-case class Plus(lhs: Expression, rhs: Expression) extends Expression
-case class Minus(lhs: Expression, rhs: Expression) extends Expression
+sealed trait Expression extends JsonConvertable
+
+case class Number(value: Int) extends Expression {
+  override def convertToJson: JsonValue = JsonNumber(value)
+}
+case class Plus(lhs: Expression, rhs: Expression) extends Expression {
+  override def convertToJson: JsonValue = JsonObject(Map(
+    "op" -> JsonString("+"),
+    "lhs" -> lhs.convertToJson,
+    "rhs" -> rhs.convertToJson
+  ))
+}
+
+case class Minus(lhs: Expression, rhs: Expression) extends Expression {
+  override def convertToJson: JsonValue = JsonObject(Map(
+    "op" -> JsonString("-"),
+    "lhs" -> lhs.convertToJson,
+    "rhs" -> rhs.convertToJson
+  ))
+}
 
 object ExpressionEvaluator {
   def value(expression: Expression): Int = expression match {

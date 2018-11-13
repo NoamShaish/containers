@@ -11,7 +11,7 @@ case object JsonNull extends JsonValue
 object JsonWriter {
   def write(value: JsonValue): String = value match {
     case JsonObject(entries) =>
-      val serializedEntries = for((key, value) <- entries) yield key + ":" + write(value)
+      val serializedEntries = for((key, value) <- entries) yield key + ": " + write(value)
       "{" + serializedEntries.mkString(", ") + "}"
     case JsonArray(entries) =>
       val serializedEntries = entries.map(write)
@@ -21,4 +21,6 @@ object JsonWriter {
     case JsonBoolean(bValue) => bValue.toString
     case JsonNull => "null"
   }
+
+  def write(value: JsonConvertable): String = write(value.convertToJson)
 }
