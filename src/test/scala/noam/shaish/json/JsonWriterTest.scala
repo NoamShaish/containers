@@ -1,6 +1,6 @@
 package noam.shaish.json
 
-import noam.shaish.expression.{Minus, Number, Plus, ExpressionConverter}
+import noam.shaish.expression.{Expression, Minus, Number, Plus}
 import org.scalatest.{FlatSpec, Matchers}
 
 class JsonWriterTest extends FlatSpec with Matchers {
@@ -32,7 +32,8 @@ class JsonWriterTest extends FlatSpec with Matchers {
   }
 
   it should "write an expression 3 - (1 + 2)" in {
-    JsonWriter.write(Minus(Number(3), Plus(Number(1), Number(2))), ExpressionConverter) should be(
+    val minus: Expression = Minus(Number(3), Plus(Number(1), Number(2)))
+    JsonWriter.write(minus) should be(
       "{op: \"-\", lhs: 3, rhs: {op: \"+\", lhs: 1, rhs: 2}}"
     )
   }

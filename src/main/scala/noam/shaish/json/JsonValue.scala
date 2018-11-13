@@ -22,5 +22,5 @@ object JsonWriter {
     case JsonNull => "null"
   }
 
-  def write[A](value: A, converter: JsonConverter[A]): String = write(converter.convertToJson(value))
+  def write[A: Json](value: A): String = write(implicitly[Json[A]].from(value))
 }
