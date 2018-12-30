@@ -6,7 +6,8 @@ scala:
 - 2.11.8
 
 script:
-- sbt ++$TRAVIS_SCALA_VERSION coverage test
+- sbt ++$TRAVIS_SCALA_VERSION coverage test &&
+  sbt ++$TRAVIS_SCALA_VERSION coverageAggregate
 
 # Use container-based infrastructure
 sudo: false
