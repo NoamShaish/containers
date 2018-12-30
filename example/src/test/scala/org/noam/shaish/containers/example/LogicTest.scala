@@ -1,7 +1,8 @@
-package noam.shaish.containers
+package org.noam.shaish.containers.example
 
 import org.apache.spark.{SparkConf, SparkContext}
 import org.scalatest.{FlatSpec, Matchers}
+import org.noam.shaish.containers.spark.RDDContainer._
 
 /**
   * Created by Noam Shaish on 6/25/2017.
