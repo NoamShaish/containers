@@ -7,7 +7,7 @@ scala:
 
 script:
 - sbt ++$TRAVIS_SCALA_VERSION clean coverage test &&
-  sbt coverageAggregate
+  sbt ++$TRAVIS_SCALA_VERSION coverageAggregate
 
 # Use container-based infrastructure
 sudo: false
