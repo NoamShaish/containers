@@ -6,7 +6,7 @@ scala:
 - 2.11.8
 
 script:
-- sbt ++$TRAVIS_SCALA_VERSION coverage test &&
+- sbt ++$TRAVIS_SCALA_VERSION coverage test coverageReport &&
   sbt ++$TRAVIS_SCALA_VERSION coverageAggregate
 
 # Use container-based infrastructure
@@ -24,4 +24,4 @@ before_cache:
   - find $HOME/.ivy2/cache -name "ivydata-*.properties" -print -delete
   - find $HOME/.sbt        -name "*.lock"               -print -delete
 
-after_success: "sbt ++$TRAVIS_SCALA_VERSION coverageReport coveralls"
+after_success: "sbt ++$TRAVIS_SCALA_VERSION coveralls"
