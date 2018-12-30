@@ -1,11 +1,12 @@
-package noam.shaish.containers
+package org.noam.shaish.containers.example
 
 import java.util.Random
 
 import breeze.linalg.{DenseVector, Vector}
+import org.noam.shaish.containers.{Container, PairContainer}
+import org.noam.shaish.containers.Container.ops._
 
 import scala.language.higherKinds
-import noam.shaish.containers.Container.ops._
 
 /**
   * Created by Noam Shaish on 6/25/2017.
