@@ -1,7 +1,7 @@
-package org.noam.shaish.containers.spark
+package org.nevair.containers.spark
 
 import org.apache.spark.rdd.RDD
-import org.noam.shaish.containers.{Container, PairContainer}
+import org.nevair.containers.{Container, PairContainer}
 
 import scala.reflect.ClassTag
 

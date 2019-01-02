@@ -1,6 +1,6 @@
-package org.noam.shaish.containers.example
+package org.nevair.containers.example
 
-import org.noam.shaish.containers.Container
+import org.nevair.containers.Container
 
 import scala.reflect.ClassTag
 

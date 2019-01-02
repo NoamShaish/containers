@@ -1,4 +1,4 @@
-package org.noam.shaish.containers
+package org.nevair.containers
 
 import org.scalatest.{FlatSpec, Matchers}
 import Container.ops._

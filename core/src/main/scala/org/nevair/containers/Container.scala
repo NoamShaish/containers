@@ -1,4 +1,4 @@
-package org.noam.shaish.containers
+package org.nevair.containers
 
 import scala.annotation.implicitNotFound
 import scala.language.higherKinds

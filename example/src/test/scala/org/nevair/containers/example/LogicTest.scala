@@ -1,8 +1,8 @@
-package org.noam.shaish.containers.example
+package org.nevair.containers.example
 
 import org.apache.spark.{SparkConf, SparkContext}
 import org.scalatest.{FlatSpec, Matchers}
-import org.noam.shaish.containers.spark.SparkContainer._
+import org.nevair.containers.spark.SparkContainer._
 import ExampleContainer._
 
 /**

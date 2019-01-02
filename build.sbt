@@ -2,7 +2,7 @@ lazy val scala211 = "2.11.8"
 lazy val supportedScalaVersions = List(scala211)
 lazy val sparkVersion = "2.3.1"
 
-ThisBuild / organization := "org.noam.shaish"
+ThisBuild / organization := "org.nevair"
 ThisBuild / version := "0.1.0-SNAPSHOT"
 
 

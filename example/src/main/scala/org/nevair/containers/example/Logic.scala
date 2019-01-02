@@ -1,10 +1,10 @@
-package org.noam.shaish.containers.example
+package org.nevair.containers.example
 
 import java.util.Random
 
 import breeze.linalg.{DenseVector, Vector}
-import org.noam.shaish.containers.{Container, PairContainer}
-import org.noam.shaish.containers.Container.ops._
+import org.nevair.containers.{Container, PairContainer}
+import org.nevair.containers.Container.ops._
 
 import scala.language.higherKinds
 
