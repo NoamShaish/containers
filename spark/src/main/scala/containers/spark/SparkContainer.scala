@@ -1,11 +1,11 @@
-package org.noam.shaish.containers.spark
+package containers.spark
 
+import containers.{Container, PairContainer}
 import org.apache.spark.rdd.RDD
-import org.noam.shaish.containers.{Container, PairContainer}
 
 import scala.reflect.ClassTag
 
-object RDDContainer {
+object SparkContainer {
   private sealed class RDDContainer extends Container[RDD] {
     override def map[A, B: ClassTag](c: RDD[A])(f: (A) => B): RDD[B] = c.map(f)
 

@@ -24,4 +24,10 @@ before_cache:
   - find $HOME/.ivy2/cache -name "ivydata-*.properties" -print -delete
   - find $HOME/.sbt        -name "*.lock"               -print -delete
 
-after_success: "sbt ++$TRAVIS_SCALA_VERSION coveralls"
+after_success:
+  - >
+      sbt ++$TRAVIS_SCALA_VERSION coveralls &&
+      sbt 'set resolvers += "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots"'
+      'set credentials += Credentials("Sonatype Nexus Repository Manager", "oss.sonatype.org", System.getenv("SONATYPE_USER"), System.getenv("SONATYPE_PASS"))'
+      ++${TRAVIS_SCALA_VERSION}
+      publish
