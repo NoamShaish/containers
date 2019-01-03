@@ -4,14 +4,15 @@ lazy val sparkVersion = "2.3.1"
 
 ThisBuild / organization := "com.github.NoamShaish"
 ThisBuild / version := "0.1.0-SNAPSHOT"
-
-publishTo := Some("Sonatype Snapshots Nexus" at "https://oss.sonatype.org/content/repositories/snapshots")
+ThisBuild / publishTo := Some("Sonatype Snapshots Nexus" at "https://oss.sonatype.org/content/repositories/snapshots")
 
 lazy val root = (project in file("."))
   .aggregate(core, spark, example)
   .settings(
-    crossScalaVersions := Nil
+    crossScalaVersions := Nil,
+    publishArtifact := false
   )
+
 lazy val core = (project in file("core"))
   .settings(
     name := "containers-core",
