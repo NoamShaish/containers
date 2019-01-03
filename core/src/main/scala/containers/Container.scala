@@ -1,4 +1,4 @@
-package org.nevair.containers
+package containers
 
 import scala.annotation.implicitNotFound
 import scala.language.higherKinds

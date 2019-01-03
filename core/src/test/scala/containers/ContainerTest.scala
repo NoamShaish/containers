@@ -1,4 +1,4 @@
-package org.nevair.containers
+package containers
 
 import org.scalatest.{FlatSpec, Matchers}
 import Container.ops._

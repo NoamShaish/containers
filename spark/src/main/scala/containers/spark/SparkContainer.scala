@@ -1,7 +1,7 @@
-package org.nevair.containers.spark
+package containers.spark
 
+import containers.{Container, PairContainer}
 import org.apache.spark.rdd.RDD
-import org.nevair.containers.{Container, PairContainer}
 
 import scala.reflect.ClassTag
 

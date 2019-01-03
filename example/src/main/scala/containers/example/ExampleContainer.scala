@@ -1,6 +1,6 @@
-package org.nevair.containers.example
+package containers.example
 
-import org.nevair.containers.Container
+import containers.Container
 
 import scala.reflect.ClassTag
 

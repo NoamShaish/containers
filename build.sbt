@@ -2,9 +2,8 @@ lazy val scala211 = "2.11.8"
 lazy val supportedScalaVersions = List(scala211)
 lazy val sparkVersion = "2.3.1"
 
-ThisBuild / organization := "org.nevair"
+ThisBuild / organization := "com.github.NoamShaish"
 ThisBuild / version := "0.1.0-SNAPSHOT"
-
 
 lazy val root = (project in file("."))
   .aggregate(core, spark, example)
