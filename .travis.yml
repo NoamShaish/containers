@@ -27,6 +27,7 @@ before_cache:
 after_success:
   - >
       sbt ++$TRAVIS_SCALA_VERSION coveralls &&
+      test "${TRAVIS_PULL_REQUEST}" = 'false' &&
       sbt 'set resolvers += "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots"'
       'set credentials += Credentials("Sonatype Nexus Repository Manager", "oss.sonatype.org", System.getenv("SONATYPE_USER"), System.getenv("SONATYPE_PASS"))'
       ++${TRAVIS_SCALA_VERSION}
