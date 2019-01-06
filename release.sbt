@@ -2,11 +2,11 @@ import ReleaseTransformations._
 
 
 // publishing
-publishMavenStyle := true
+ThisBuild / publishMavenStyle := true
 
-credentials += Credentials(Path.userHome / ".ivy2" / ".credentials_sonatype")
+ThisBuild / credentials += Credentials(Path.userHome / ".ivy2" / ".credentials_sonatype")
 
-publishTo := {
+ThisBuild / publishTo := {
   val nexus = "https://oss.sonatype.org/"
   if (version.value.trim.endsWith("SNAPSHOT"))
     Some("snapshots" at nexus + "content/repositories/snapshots")
@@ -14,11 +14,11 @@ publishTo := {
     Some("releases" at nexus + "service/local/staging/deploy/maven2")
 }
 
-publishArtifact in Test := false
+ThisBuild / publishArtifact in Test := false
 
-pomIncludeRepository := { _ => false }
+ThisBuild / pomIncludeRepository := { _ => false }
 
-pomExtra := {
+ThisBuild / pomExtra := {
     <licenses>
       <license>
         <name>The Apache Software License, Version 2.0</name>
@@ -41,14 +41,14 @@ pomExtra := {
 }
 
 // use maven style tag name
-releaseTagName := s"${name.value}-${(version in ThisBuild).value}"
+ThisBuild / releaseTagName := s"${name.value}-${(version in ThisBuild).value}"
 
 // sign artifacts
 
-releasePublishArtifactsAction := PgpKeys.publishSigned.value
+ThisBuild / releasePublishArtifactsAction := PgpKeys.publishSigned.value
 
 // don't push changes (so they can be verified first)
-releaseProcess := Seq(
+ThisBuild / releaseProcess := Seq(
   checkSnapshotDependencies,
   inquireVersions,
   runTest,
