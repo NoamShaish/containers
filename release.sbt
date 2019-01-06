@@ -19,6 +19,7 @@ ThisBuild / publishArtifact in Test := false
 ThisBuild / pomIncludeRepository := { _ => false }
 
 ThisBuild / pomExtra := {
+    <url>https://github.com/NoamShaish/containers</url>
     <licenses>
       <license>
         <name>The Apache Software License, Version 2.0</name>
