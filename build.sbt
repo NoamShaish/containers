@@ -4,8 +4,13 @@ lazy val sparkVersion = "2.3.1"
 
 ThisBuild / organization := "com.github.NoamShaish"
 ThisBuild / version := "0.1.0-SNAPSHOT"
-ThisBuild / publishTo := Some("Sonatype Snapshots Nexus" at "https://oss.sonatype.org/content/repositories/snapshots")
-
+ThisBuild / publishTo := {
+  val nexus = "https://oss.sonatype.org/"
+  if (version.value.trim.endsWith("SNAPSHOT"))
+    Some("snapshots" at nexus + "content/repositories/snapshots")
+  else
+    Some("releases" at nexus + "service/local/staging/deploy/maven2")
+}
 lazy val root = (project in file("."))
   .aggregate(core, spark, example)
   .settings(
