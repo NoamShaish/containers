@@ -18,24 +18,28 @@ ThisBuild / publishArtifact in Test := false
 
 ThisBuild / pomIncludeRepository := { _ => false }
 
-
-licenses := Seq("he Apache Software License, Version 2.0" -> url("http://www.apache.org/licenses/LICENSE-2.0.txt"))
-homepage := Some(url("https://github.com/NoamShaish/containers"))
-
-scmInfo := Some(
-  ScmInfo(
-    url("https://github.com/NoamShaish/containers"),
-    "scm:git@github.com:NoamShaish/containers.git"
-  ))
-
-developers := List(
-  Developer(
-    id="NoamShaish",
-    name="Noam Shaish",
-    email="noamshaish@gmail.com",
-    url = url("https://github.com/NoamShaish")
-  ))
-
+ThisBuild / pomExtra := {
+    <url>https://github.com/NoamShaish/containers</url>
+    <licenses>
+      <license>
+        <name>The Apache Software License, Version 2.0</name>
+        <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        <distribution>repo</distribution>
+      </license>
+    </licenses>
+    <scm>
+      <connection>scm:git:git@github.com:NoamShaish/containers.git</connection>
+      <developerConnection>scm:git:git@github.com:NoamShaish/containers.git</developerConnection>
+      <url>https://github.com/NoamShaish/containers</url>
+    </scm>
+    <developers>
+      <developer>
+        <id>NoamShaish</id>
+        <name>Noam Shaish</name>
+        <email>noamshaish@gmail.com</email>
+      </developer>
+    </developers>
+}
 
 // use maven style tag name
 ThisBuild / releaseTagName := s"${name.value}-${(version in ThisBuild).value}"
