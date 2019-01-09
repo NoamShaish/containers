@@ -2,11 +2,11 @@ import ReleaseTransformations._
 
 
 // publishing
-ThisBuild / publishMavenStyle := true
+publishMavenStyle in ThisBuild := true
 
-ThisBuild / credentials += Credentials(Path.userHome / ".ivy2" / ".credentials_sonatype")
+credentials in ThisBuild += Credentials(Path.userHome / ".ivy2" / ".credentials_sonatype")
 
-ThisBuild / publishTo := {
+publishTo in ThisBuild := {
   val nexus = "https://oss.sonatype.org/"
   if (version.value.trim.endsWith("SNAPSHOT"))
     Some("snapshots" at nexus + "content/repositories/snapshots")
@@ -14,11 +14,11 @@ ThisBuild / publishTo := {
     Some("releases" at nexus + "service/local/staging/deploy/maven2")
 }
 
-ThisBuild / publishArtifact in Test := false
+publishArtifact in Test := false
 
-ThisBuild / pomIncludeRepository := { _ => false }
+pomIncludeRepository in ThisBuild := { _ => false }
 
-ThisBuild / pomExtra := {
+pomExtra in ThisBuild := {
     <url>https://github.com/NoamShaish/containers</url>
     <licenses>
       <license>
@@ -42,14 +42,14 @@ ThisBuild / pomExtra := {
 }
 
 // use maven style tag name
-ThisBuild / releaseTagName := s"${name.value}-${(version in ThisBuild).value}"
+releaseTagName in ThisBuild := s"${name.value}-${(version in ThisBuild).value}"
 
 // sign artifacts
 
-ThisBuild / releasePublishArtifactsAction := PgpKeys.publishSigned.value
+releasePublishArtifactsAction in ThisBuild := PgpKeys.publishSigned.value
 
 // don't push changes (so they can be verified first)
-ThisBuild / releaseProcess := Seq(
+releaseProcess in ThisBuild := Seq(
   checkSnapshotDependencies,
   inquireVersions,
   runTest,
