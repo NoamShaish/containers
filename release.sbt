@@ -42,6 +42,8 @@ ThisBuild / releaseTagName := s"${name.value}-${(version in ThisBuild).value}"
 
 // sign artifacts
 
+ThisBuild / useGpg := true
+
 ThisBuild / releasePublishArtifactsAction := PgpKeys.publishSigned.value
 
 // don't push changes (so they can be verified first)
