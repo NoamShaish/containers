@@ -2,9 +2,9 @@ lazy val scala211 = "2.11.8"
 lazy val supportedScalaVersions = List(scala211)
 lazy val sparkVersion = "2.3.1"
 
-ThisBuild / organization := "com.github.NoamShaish"
-ThisBuild / version := "0.1.0-SNAPSHOT"
-ThisBuild / publishTo := {
+organization := "com.github.NoamShaish"
+version := "0.1.0-SNAPSHOT"
+publishTo := {
   val nexus = "https://oss.sonatype.org/"
   if (version.value.trim.endsWith("SNAPSHOT"))
     Some("snapshots" at nexus + "content/repositories/snapshots")
