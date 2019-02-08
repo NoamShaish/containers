@@ -60,5 +60,7 @@ releaseProcess in ThisBuild := Seq(
   setNextVersion,
   commitNextVersion,
   pushChanges,
+  releaseStepCommand("sonatypeOpen \"com.github.NoamShaish\" \"containers-staging\""),
+  releaseStepCommand("publishSigned"),
   releaseStepCommand("sonatypeRelease")
 )
