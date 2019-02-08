@@ -48,18 +48,20 @@ releaseTagName in ThisBuild := s"${name.value}-${(version in ThisBuild).value}"
 
 releasePublishArtifactsAction in ThisBuild := PgpKeys.publishSigned.value
 
+releaseCrossBuild := true
+
 // don't push changes (so they can be verified first)
 releaseProcess in ThisBuild := Seq(
   checkSnapshotDependencies,
   inquireVersions,
+  runClean,
   runTest,
   setReleaseVersion,
   commitReleaseVersion,
   tagRelease,
-  releaseStepCommand("sonatypeOpen \"com.github.NoamShaish\" \"containers-staging\""),
-  releaseStepCommand("publishSigned"),
+  releaseStepCommandAndRemaining("+publishSigned"),
+  setNextVersion,
+  commitNextVersion,
   releaseStepCommand("sonatypeRelease"),
-    setNextVersion,
-    commitNextVersion,
-    pushChanges
+  pushChanges
 )
