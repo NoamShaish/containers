@@ -50,4 +50,4 @@ releasePublishArtifactsAction in ThisBuild := PgpKeys.publishSigned.value
 
 
 // don't push changes (so they can be verified first)
-releaseProcess in ThisBuild += releaseStepCommand("sonatypeRelease")
+releaseProcess += releaseStepCommand("sonatypeRelease")
