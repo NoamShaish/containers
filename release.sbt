@@ -56,11 +56,10 @@ releaseProcess in ThisBuild := Seq(
   setReleaseVersion,
   commitReleaseVersion,
   tagRelease,
-  publishArtifacts,
-  setNextVersion,
-  commitNextVersion,
-  pushChanges,
   releaseStepCommand("sonatypeOpen \"com.github.NoamShaish\" \"containers-staging\""),
   releaseStepCommand("publishSigned"),
-  releaseStepCommand("sonatypeRelease")
+  releaseStepCommand("sonatypeRelease"),
+    setNextVersion,
+    commitNextVersion,
+    pushChanges
 )
