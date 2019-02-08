@@ -46,8 +46,5 @@ releaseTagName in ThisBuild := s"${name.value}-${(version in ThisBuild).value}"
 
 // sign artifacts
 
-releasePublishArtifactsAction in ThisBuild := PgpKeys.publishSigned.value
-
-
-// don't push changes (so they can be verified first)
+releasePublishArtifactsAction := PgpKeys.publishSigned.value
 releaseProcess += releaseStepCommand("sonatypeRelease")
