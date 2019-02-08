@@ -2,7 +2,7 @@ lazy val scala211 = "2.11.8"
 lazy val sparkVersion = "2.3.1"
 
 organization in ThisBuild := "com.github.NoamShaish"
-version in ThisBuild:= "0.1.1-SNAPSHOT"
+version in ThisBuild:= "0.1.0-SNAPSHOT"
 scalaVersion in ThisBuild := scala211
   publishTo in ThisBuild := {
   val nexus = "https://oss.sonatype.org/"
