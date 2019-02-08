@@ -48,7 +48,6 @@ releaseTagName in ThisBuild := s"${name.value}-${(version in ThisBuild).value}"
 
 releasePublishArtifactsAction in ThisBuild := PgpKeys.publishSigned.value
 
-releaseCrossBuild := true
 
 // don't push changes (so they can be verified first)
 releaseProcess in ThisBuild := Seq(
@@ -59,7 +58,7 @@ releaseProcess in ThisBuild := Seq(
   setReleaseVersion,
   commitReleaseVersion,
   tagRelease,
-  releaseStepCommandAndRemaining("+publishSigned"),
+  releaseStepCommand("publishSigned"),
   setNextVersion,
   commitNextVersion,
   releaseStepCommand("sonatypeRelease"),
