@@ -12,3 +12,12 @@
 
 [coverage_icon]: https://coveralls.io/repos/github/NoamShaish/containers/badge.svg?branch=master
 [coverage_link]: https://coveralls.io/github/NoamShaish/containers?branch=master
+
+
+### Release
+```
+sbt
+> set version := "x.x.x"
+> publishSigned
+> sonatypeRelease
+```
