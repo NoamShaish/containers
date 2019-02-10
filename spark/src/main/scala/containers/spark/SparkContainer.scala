@@ -23,7 +23,7 @@ object SparkContainer {
 
     override def union[A](c: RDD[A], other: RDD[A]): RDD[A] = c.union(other)
 
-    override def sortBy[A, K: Ordering : ClassTag](c: RDD[A], f: A => K, ascending: Boolean): RDD[A] = c.sortBy(f)
+    override def sortBy[A, K: Ordering : ClassTag](c: RDD[A], f: A => K, ascending: Boolean): RDD[A] = c.sortBy(f, ascending)
 
     override def intersection[A](c: RDD[A], other: RDD[A]): RDD[A] = c.intersection(other)
 
