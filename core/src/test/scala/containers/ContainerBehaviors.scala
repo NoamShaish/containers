@@ -65,7 +65,7 @@ abstract class ContainerBehaviors[C[_]: Container: PairContainer](implicit ev: C
       toList(l1.intersection(l2)) should contain theSameElementsAs List(3, 4, 5)
     }
 
-    it should "calculate catesian product of 2 lists" in {
+    it should "calculate cartesian product of 2 lists" in {
       val l1 = createContainer(List(1, 2, 3))
       val l2 = createContainer(List("a", "b", "c"))
 
@@ -94,6 +94,17 @@ abstract class ContainerBehaviors[C[_]: Container: PairContainer](implicit ev: C
       val l2 = createContainer(List("a", "b", "c"))
 
       toList(l1.zip(l2)) should contain theSameElementsAs List((1, "a"), (2, "b"), (3, "c"))
+    }
+
+    it should "call filter" in {
+      toList(createContainer(List(1, 2, 3)).filter(_ >= 2)) should contain theSameElementsAs List(2, 3)
+    }
+
+    it should "call union" in {
+      val l1 = createContainer(List(1, 2, 3))
+      val l2 = createContainer(List(4, 5, 6))
+
+      toList(l1.union(l2)) should contain theSameElementsAs List(1, 2, 3, 4, 5, 6)
     }
   }
 
