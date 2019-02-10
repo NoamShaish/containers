@@ -1,7 +1,6 @@
-import ReleaseTransformations._
-
-
 // publishing
+useGpg := true
+
 publishMavenStyle in ThisBuild := true
 
 credentials in ThisBuild += Credentials(Path.userHome / ".ivy2" / ".credentials_sonatype")
@@ -45,6 +44,5 @@ pomExtra in ThisBuild := {
 releaseTagName in ThisBuild := s"${name.value}-${(version in ThisBuild).value}"
 
 // sign artifacts
-
 releasePublishArtifactsAction := PgpKeys.publishSigned.value
 releaseProcess += releaseStepCommand("sonatypeRelease")

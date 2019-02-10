@@ -26,12 +26,13 @@ lazy val core = (project in file("core"))
   )
 
 lazy val spark = (project in file("spark"))
-  .dependsOn(core)
+  .dependsOn(core % "compile->compile;test->test")
   .settings(
     name := "containers-spark",
     libraryDependencies ++= Seq(
       "org.apache.spark" %% "spark-core" % sparkVersion % "provided",
-      "org.scalatest" %% "scalatest" % "3.0.5" % "test"
+      "org.scalatest" %% "scalatest" % "3.0.5" % "test",
+      "com.holdenkarau" %% "spark-testing-base" % s"${sparkVersion}_0.10.0" % "test"
     )
   )
 
