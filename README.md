@@ -2,6 +2,7 @@
 [![Project License][licence_icon]][licence_link]
 [![Travis Status][travis_icon]][travis_link]
 [![Coverage Status][coverage_icon]][coverage_link]
+[![Nexus Release][nexus_icon]][nexus_link]
 
 
 [licence_icon]: https://img.shields.io/github/license/NoamShaish/containers.svg
@@ -12,6 +13,9 @@
 
 [coverage_icon]: https://coveralls.io/repos/github/NoamShaish/containers/badge.svg?branch=master
 [coverage_link]: https://coveralls.io/github/NoamShaish/containers?branch=master
+
+[nexus_icon]: https://img.shields.io/nexus/r/https/oss.sonatype.org/com.github.NoamShaish/containers-core_2.11.svg
+[nexus_link]: https://oss.sonatype.org/#nexus-search;quick~containers-core_2.11
 
 ## What is a Container?
 Container is yet another collection abstraction.
