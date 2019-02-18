@@ -44,5 +44,5 @@ pomExtra in ThisBuild := {
 releaseTagName in ThisBuild := s"${name.value}-${(version in ThisBuild).value}"
 
 // sign artifacts
-releasePublishArtifactsAction := PgpKeys.publishSigned.value
-releaseProcess += releaseStepCommand("sonatypeRelease")
+releasePublishArtifactsAction in ThisBuild := PgpKeys.publishSigned.value
+releaseProcess in ThisBuild += releaseStepCommand("sonatypeRelease")
