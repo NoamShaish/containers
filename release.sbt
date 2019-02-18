@@ -45,4 +45,4 @@ releaseTagName in ThisBuild := s"${name.value}-${(version in ThisBuild).value}"
 
 // sign artifacts
 releasePublishArtifactsAction in ThisBuild := PgpKeys.publishSigned.value
-releaseProcess in ThisBuild += releaseStepCommand("sonatypeRelease")
+releaseProcess += releaseStepCommand("sonatypeRelease")
