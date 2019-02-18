@@ -70,7 +70,7 @@ both can run on either list or RDD with the exact same code.
 ### Release
 ```
 sbt
-> set version := "x.x.x"
+> set version in ThisBuild := "x.x.x"
 > publishSigned
 > sonatypeRelease
 ```
