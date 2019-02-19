@@ -6,7 +6,6 @@ lazy val sparkVersion = "2.3.1"
 lazy val repoUrl = "https://github.com/NoamShaish/containers"
 
 organization in ThisBuild := "com.github.NoamShaish"
-version in ThisBuild := "0.1.0-SNAPSHOT"
 scalaVersion in ThisBuild := scala211
 
 val appSettings = Seq(
@@ -46,8 +45,6 @@ val appSettings = Seq(
       url("http://www.apache.org/licenses/LICENSE-2.0.txt")
     )
   ),
-// use maven style tag name
-  releaseTagName := s"${name.value}-${(version in ThisBuild).value}",
 // sign artifacts
   releasePublishArtifactsAction := PgpKeys.publishSigned.value,
   releaseProcess += releaseStepCommand("sonatypeRelease")
