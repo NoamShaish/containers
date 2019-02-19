@@ -69,8 +69,5 @@ both can run on either list or RDD with the exact same code.
 
 ### Release
 ```
-sbt
-> set version in ThisBuild := "x.x.x"
-> publishSigned
-> sonatypeRelease
+sbt release with-defaults
 ```
